@@ -16,7 +16,7 @@ export const Header = () => {
       <div className="flex-none gap-2">
       <Modalmenu />
         <div className="dropdown-end dropdown">
-        {sessionData?.user?.name ? `Conectado como ${sessionData.user.name}` : ""}
+        {sessionData?.user?.name ? `${sessionData.user.name}Conect` : ""}
           {sessionData?.user ? (
             <label
               tabIndex={0}
