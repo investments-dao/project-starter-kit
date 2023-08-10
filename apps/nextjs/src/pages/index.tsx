@@ -48,7 +48,7 @@ export default function Home() {
             </Link>
             <Link
               className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-              href="https://inmoocio.investments-dao.com"
+              href="https://inmocio.investments-dao.com"
               target="_blank"
             >
               <h3 className="text-2xl font-bold">Inmobiliaria →</h3>
@@ -58,7 +58,7 @@ export default function Home() {
             </Link>
             <Link
               className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-              href="https://inmoocio.investments-dao.com"
+              href="https://inmocio.investments-dao.com"
               target="_blank"
             >
               <h3 className="text-2xl font-bold">Actividades →</h3>
