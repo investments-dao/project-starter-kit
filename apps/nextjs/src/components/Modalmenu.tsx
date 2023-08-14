@@ -1,102 +1,181 @@
-import React from "react";
+import React from 'react';
+import Link from 'next/link';
 
 export default function Modalmenu() {
   const [showModal, setShowModal] = React.useState(false);
   return (
     <>
       <button
-        className="bg-green-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+        className="mb-1 mr-1 rounded bg-green-500 px-6 py-3 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:bg-pink-600"
         type="button"
         onClick={() => setShowModal(true)}
       >
-      <h3>Menú</h3>
+        <h3>Menú</h3>
       </button>
       {showModal ? (
         <>
-          <div
-            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
-          >
-            <div className="relative w-auto my-6 mx-auto max-w-6xl">
+          <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden outline-none focus:outline-none">
+            <div className="relative mx-auto my-6 w-auto max-w-6xl">
               {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+              <div className="relative flex w-full flex-col rounded-lg border-0 bg-cyan-500 shadow-lg outline-none focus:outline-none">
                 {/*header*/}
-                <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                  <h3 className="text-3xl font-semibold">
-                      Modal Title
-                  </h3>         
+                <div className="flex items-start justify-between rounded-t border-b border-solid border-slate-200 p-5">
+                  <h3 className="text-3xl font-semibold">Investments-Dao</h3>
                   <button
-                    className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                    className="float-right ml-auto border-0 bg-transparent p-1 text-3xl font-semibold leading-none text-black opacity-5 outline-none focus:outline-none"
                     onClick={() => setShowModal(false)}
                   >
-                    <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-                      ×
-                    </span>
+                    <span className="text-bg-black block h-6 w-6 text-3xl">X</span>
                   </button>
                 </div>
                 {/*body*/}
-                <div className="relative p-6 flex-auto">
-<ul className="menu xl:menu-horizontal lg:min-w-max bg-primary rounded-box">
-  <li>
-    <a>Inmuebles</a>
-    <ul>
-      <li><a>Compra</a></li>
-      <li><a>Venta</a></li>
-      <li><a>Alquiler</a></li>
-      <li><a>Permuta</a></li>
-    </ul>
-  </li>
-  <li>
-    <a>Actividades</a>
-    <ul>
-      <li><a>Playa</a></li>
-      <li><a>Montaña</a></li>
-      <li><a>Nocturnas</a></li>
-      <li><a>Infantiles</a></li>
-    </ul>
-  </li>
-  <li>
-    <a>Anuncios</a>
-    <ul>
-      <li><a>Anuncia tu Inmueble Gratis</a></li>
-      <li><a>Anuncia tu Actividad Gratis</a></li>
-      
-      <li>
-        <a>Filiales</a>
-        <ul>
-          <li><a>Inmo-Ocio</a></li>
-          <li><a>Dao.Surfclubb</a></li>
-          
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>
-    <a>INMO-OCIO</a>
-    <ul>
-      <li><a>Nosotros</a></li>
-      <li><a>Contacto</a></li>
-      <li><a>Política de privacidad y aviso legal</a></li>
-      <li><a>Política de cookies</a></li>
-      <li><a>Press kit</a></li>
-    </ul>
-  </li>
-</ul>
+                <div className="relative flex-auto p-6">
+                  <ul className="menu rounded-box bg-primary xl:menu-horizontal lg:min-w-max">
+                    <li>
+                      <Link href="#" target="_blank">
+                        INMUEBLES
+                      </Link>
+                      <ul>
+                        <li>
+                          <Link href="#" target="_blank">
+                            Compra
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="#" target="_blank">
+                            Venta
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="#" target="_blank">
+                            Alquiler
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="#" target="_blank">
+                            Permuta
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <Link href="#" target="_blank">
+                        ACTIVIDADES
+                      </Link>
+                      <ul>
+                        <li>
+                          <Link href="#" target="_blank">
+                            Playa
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="#" target="_blank">
+                            Montaña
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="#" target="_blank">
+                            Nocturnas
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="#" target="_blank">
+                            Infantiles
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <Link href="#" target="_blank">
+                        ANUNCIOS-GRATIS
+                      </Link>
+                      <ul>
+                        <li>
+                          <Link href="#" target="_blank">
+                            Anuncia tu Inmueble Gratis
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="#" target="_blank">
+                            Anuncia tu Actividad Gratis
+                          </Link>
+                        </li>
+
+                        <li>
+                          <Link href="#" target="_blank">
+                            Filiales
+                          </Link>
+                          <ul>
+                            <li>
+                              <Link
+                                href="https://inmocio.investments-dao.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                Inmo-Ocio
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
+                                href="https://dao.surfclubb.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                Dao.Surfclubb
+                              </Link>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <Link href="#" target="_blank">
+                        INMO-OCIO
+                      </Link>
+                      <ul>
+                        <li>
+                          <Link href="#" target="_blank">
+                            Nosotros
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="#" target="_blank">
+                            Contacto
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="#" target="_blank">
+                            Política de privacidad y aviso legal
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="#" target="_blank">
+                            Política de cookies
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="#" target="_blank">
+                            Press kit
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
                 {/*footer*/}
-                <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                <div className="flex items-center justify-end rounded-b border-t border-solid border-slate-200 p-6">
                   <button
-                    className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    className="mb-1 mr-1 rounded bg-emerald-500 px-6 py-3 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:bg-emerald-600"
                     type="button"
                     onClick={() => setShowModal(false)}
                   >
                     Cerrar
                   </button>
-                  
                 </div>
               </div>
             </div>
           </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+          <div className="fixed inset-0 z-40 bg-black opacity-25"></div>
         </>
       ) : null}
     </>
