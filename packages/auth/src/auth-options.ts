@@ -1,9 +1,9 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { type DefaultSession, type NextAuthOptions } from 'next-auth';
 import DiscordProvider, { type DiscordProfile } from 'next-auth/providers/discord';
-import GitHubProvider from 'next-auth/providers/github';
-import GoogleProvider from 'next-auth/providers/google';
-import TwitterProvider from 'next-auth/providers/twitter';
+import GitHubProvider, { type GithubProfile } from 'next-auth/providers/github';
+import GoogleProvider, { type GoogleProfile } from 'next-auth/providers/google';
+import TwitterProvider, { type TwitterProfile } from 'next-auth/providers/twitter';
 import { prisma } from '@acme/db';
 import {
   createAccountHandler,
