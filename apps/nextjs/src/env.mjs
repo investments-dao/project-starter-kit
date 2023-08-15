@@ -1,8 +1,8 @@
 import { z } from 'zod';
 
 /**
- * Specify your server-side environment variables schema here. This way you can ensure the app isn't
- * built with invalid env vars.
+ * Especifique aquí su esquema de variables de entorno del lado del servidor. De esta manera, puede asegurarse de que la aplicación no esté
+ * compilada con variables de entorno no válidas.
  */
 const server = z.object({
   DATABASE_URL: z.string().url().min(1),
@@ -10,14 +10,20 @@ const server = z.object({
   NEXTAUTH_SECRET:
     process.env.NODE_ENV === 'production' ? z.string().min(1) : z.string().min(1).optional(),
   NEXTAUTH_URL: z.preprocess(
-    // This makes Vercel deployments not fail if you don't set NEXTAUTH_URL
-    // Since NextAuth.js automatically uses the VERCEL_URL if present.
+    // Esto hace que las implementaciones de Vercel no fallen si no establece NEXTAUTH_URL
+    // Dado que NextAuth.js usa automáticamente VERCEL_URL si está presente.
     (str) => process.env.VERCEL_URL ?? str,
-    // VERCEL_URL doesn't include `https` so it cant be validated as a URL
+    // VERCEL_URL no incluye `https` por lo que no se puede validar como URL
     process.env.VERCEL ? z.string() : z.string().url(),
   ),
-  // Add `.min(1) on ID and SECRET if you want to make sure they're not empty
+  // Agrega `.min(1) en ID y SECRET si quieres asegurarte de que no estén vacíos
   API_URL: z.string().url().min(1),
+  GOOGLE_CLIENT_ID: z.string(),
+  GOOGLE_CLIENT_SECRET: z.string(),
+  TWITTER_CLIENT_ID: z.string(),
+  TWITTER_CLIENT_SECRET: z.string(),
+  GITHUB_ID: z.string(),
+  GITHUB_SECRET: z.string(),
   DISCORD_CLIENT_ID: z.string(),
   DISCORD_CLIENT_SECRET: z.string(),
   DISCORD_SERVER_ID: z.string().min(1),
@@ -35,8 +41,8 @@ const client = z.object({
 });
 
 /**
- * You can't destruct `process.env` as a regular object in the Next.js edge runtimes (e.g.
- * middlewares) or client-side so we need to destruct manually.
+ * No puede destruir `process.env` como un objeto normal en los tiempos de ejecución de borde de Next.js (por ejemplo,
+ * middlewares) o en el lado del cliente, por lo que debemos destruirlo manualmente.
  *
  * @type {Record<keyof z.infer<typeof server> | keyof z.infer<typeof client>, string | undefined>}
  */
@@ -46,6 +52,12 @@ const processEnv = {
   NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
   NEXTAUTH_URL: process.env.NEXTAUTH_URL,
   API_URL: process.env.API_URL,
+  GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+  GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
+  TWITTER_CLIENT_ID: process.env.TWITTER_CLIENT_ID,
+  TWITTER_CLIENT_SECRET: process.env.TWITTER_CLIENT_SECRET,
+  GITHUB_ID: process.env.GITHUB_ID,
+  GITHUB_SECRET: process.env.GITHUB_SECRET,
   DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID,
   DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
   DISCORD_SERVER_ID: process.env.DISCORD_SERVER_ID,
@@ -55,7 +67,7 @@ const processEnv = {
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 };
 
-// Don't touch the part below
+// No toques la parte de abajo.
 // --------------------------
 
 const merged = server.merge(client);
@@ -83,13 +95,13 @@ if (!!process.env.SKIP_ENV_VALIDATION == false) {
   env = new Proxy(parsed.data, {
     get(target, prop) {
       if (typeof prop !== 'string') return undefined;
-      // Throw a descriptive error if a server-side env var is accessed on the client
-      // Otherwise it would just be returning `undefined` and be annoying to debug
+      // Lanzar un error descriptivo si se accede a un env var del lado del servidor en el cliente
+      // De lo contrario, solo devolvería `indefinido` y sería molesto depurar
       if (!isServer && !prop.startsWith('NEXT_PUBLIC_'))
         throw new Error(
           process.env.NODE_ENV === 'production'
-            ? '❌ Attempted to access a server-side environment variable on the client'
-            : `❌ Attempted to access server-side environment variable '${prop}' on the client`,
+            ? '❌ Se intentó acceder a una variable de entorno del lado del servidor en el cliente'
+            : `❌ Se intentó acceder a la variable de entorno del lado del servidor '${prop}' en el cliente`,
         );
       return target[/** @type {keyof typeof target} */ (prop)];
     },

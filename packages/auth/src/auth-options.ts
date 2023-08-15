@@ -1,6 +1,9 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { type DefaultSession, type NextAuthOptions } from 'next-auth';
 import DiscordProvider, { type DiscordProfile } from 'next-auth/providers/discord';
+import GitHubProvider from 'next-auth/providers/github';
+import GoogleProvider from 'next-auth/providers/google';
+import TwitterProvider from 'next-auth/providers/twitter';
 import { prisma } from '@acme/db';
 import {
   createAccountHandler,
@@ -41,6 +44,18 @@ declare module 'next-auth' {
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+    }),
+    TwitterProvider({
+      clientId: process.env.TWITTER_CLIENT_ID as string,
+      clientSecret: process.env.TWITTER_CLIENT_SECRET as string,
+    }),
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID as string,
+      clientSecret: process.env.GITHUB_SECRET as string,
+    }),
     DiscordProvider({
       clientId: process.env.DISCORD_CLIENT_ID as string,
       clientSecret: process.env.DISCORD_CLIENT_SECRET as string,
@@ -81,8 +96,8 @@ export const authOptions: NextAuthOptions = {
           );
 
           /**
-           * If the user already has an account with the same provider and providerAccountId,
-           * update the account. Otherwise, create a new account for the user.
+           * Si el usuario ya tiene una cuenta con el mismo proveedor y proveedorAccountId,
+           * actualice la cuenta. De lo contrario, cree una nueva cuenta para el usuario.
            */
           if (userAccount) await updateAccountHandler(userAccount.id, username, account);
           else await createAccountHandler(user.id, username, account);
@@ -90,10 +105,10 @@ export const authOptions: NextAuthOptions = {
       }
 
       /**
-       * NOTE: Remember that by returning true, you are telling next-auth to continue the authentication process.
-       * the authentication process, i.e., it will create and update again all the tables involved in the authentication process (User, Account, Session, etc.).
-       * tables that are involved in the authentication process (User, Account, Session, etc.).
-       * Here we should only update the fields that next-auth does not update by default (such as username).
+       * NOTA: Recuerde que al devolver verdadero, le está diciendo a next-auth que continúe con el proceso de autenticación.
+       * el proceso de autenticación, es decir, creará y actualizará nuevamente todas las tablas involucradas en el proceso de autenticación (Usuario, Cuenta, Sesión, etc.).
+       * tablas que intervienen en el proceso de autenticación (Usuario, Cuenta, Sesión, etc.).
+       * Aquí solo debemos actualizar los campos que next-auth no actualiza por defecto (como el nombre de usuario).
        */
       return true;
     },
