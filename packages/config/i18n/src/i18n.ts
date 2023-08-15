@@ -20,7 +20,7 @@ void i18n
     resourcesToBackend(async (language: string, namespace, callback) => {
       import(`./locale/${language}/${namespace}.json`)
         .then(({ default: resources }) => {
-          // with dynamic import, you have to use the "default" key of the module ( https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#importing_defaults )
+          // con importación dinámica, debe usar la clave "predeterminada" del módulo ( https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#importing_defaults )
           callback(null, resources);
         })
         .catch((error) => {
@@ -34,7 +34,7 @@ void i18n
     preload: availableLanguages,
     supportedLngs: availableLanguages,
     interpolation: {
-      escapeValue: false, // This line, pemit the injection of discord markdown in the translations.
+      escapeValue: false, // Esta línea, permite la inyección de descuento de discord en las traducciones.
     },
     detection: {
       order: ['querystring', 'cookie', 'header'],

@@ -2,7 +2,7 @@
   "name": "@acme/nextjs",
   "version": "0.1.0",
   "private": true,
-  "author": "Equipo -Investments-Dao",
+  "author": "Equipo-Investments-Dao",
   "scripts": {
     "build": "pnpm with-env next build",
     "clean": "git clean -xdf .next .turbo node_modules",
