@@ -12,6 +12,24 @@ const Signin: NextPage = () => {
       <div className="relative flex flex-col items-center justify-center rounded-lg bg-slate-800 p-10">
         <button
           className="bg-primary-200/20 text-primary-50 hover:bg-primary-200/30 relative flex min-w-fit items-center justify-center overflow-hidden whitespace-nowrap rounded-lg px-4 py-2 text-center text-sm font-semibold transition duration-100 ease-out"
+          onClick={() => signIn('google')}
+        >
+          {t('nextjs:component.button.logInWithGoogle')}
+        </button>
+        <button
+          className="bg-primary-200/20 text-primary-50 hover:bg-primary-200/30 relative flex min-w-fit items-center justify-center overflow-hidden whitespace-nowrap rounded-lg px-4 py-2 text-center text-sm font-semibold transition duration-100 ease-out"
+          onClick={() => signIn('twitter')}
+        >
+          {t('nextjs:component.button.logInWithTwitter')}
+        </button>
+        <button
+          className="bg-primary-200/20 text-primary-50 hover:bg-primary-200/30 relative flex min-w-fit items-center justify-center overflow-hidden whitespace-nowrap rounded-lg px-4 py-2 text-center text-sm font-semibold transition duration-100 ease-out"
+          onClick={() => signIn('githup')}
+        >
+          {t('nextjs:component.button.logInWithGitHub')}
+        </button>
+        <button
+          className="bg-primary-200/20 text-primary-50 hover:bg-primary-200/30 relative flex min-w-fit items-center justify-center overflow-hidden whitespace-nowrap rounded-lg px-4 py-2 text-center text-sm font-semibold transition duration-100 ease-out"
           onClick={() => signIn('discord')}
         >
           {t('nextjs:component.button.logInWithDiscord')}
