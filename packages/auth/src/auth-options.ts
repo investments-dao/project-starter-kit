@@ -1,9 +1,9 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { type DefaultSession, type NextAuthOptions } from 'next-auth';
 import DiscordProvider, { type DiscordProfile } from 'next-auth/providers/discord';
-import GitHubProvider, { type GithubProfile } from 'next-auth/providers/github';
-import GoogleProvider, { type GoogleProfile } from 'next-auth/providers/google';
-import TwitterProvider, { type TwitterProfile } from 'next-auth/providers/twitter';
+import GitHubProvider from 'next-auth/providers/github';
+import GoogleProvider from 'next-auth/providers/google';
+import TwitterProvider from 'next-auth/providers/twitter';
 import { prisma } from '@acme/db';
 import {
   createAccountHandler,
@@ -76,30 +76,9 @@ export const authOptions: NextAuthOptions = {
      * that permits you to customize the sign in process.
      */
     async signIn({ account, profile, user: newUser }): Promise<boolean | string> {
-    /**
-      * The Google provider flow
-      */
-       if (account?.provider === 'google') {
-        const { username, image_url, email } = profile as GoogleProfile;
-        const { provider, providerAccountId } = account;
-        const { name } = newUser;
-    /**
-      * The Twitter provider flow
-      */
-      if (account?.provider === 'twitter') {
-        const { username, image_url, email } = profile as TwitterProfile;
-        const { provider, providerAccountId } = account;
-        const { name } = newUser;
-    /**
-      * The Github provider flow
-      */
-      if (account?.provider === 'github') {
-        const { username, image_url, email } = profile as GithubProfile;
-        const { provider, providerAccountId } = account;
-        const { name } = newUser;
-    /**
-      * The Discord provider flow
-      */
+      /**
+       * The Discord provider flow
+       */
       if (account?.provider === 'discord') {
         const { username, image_url, email } = profile as DiscordProfile;
         const { provider, providerAccountId } = account;

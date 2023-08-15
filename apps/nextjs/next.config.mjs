@@ -10,14 +10,14 @@ import nextI18nConfig from './next-i18next.config.js';
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
-  /** Enables hot reloading for local packages without a build step */
+  /** Habilita la recarga en caliente para paquetes locales sin un paso de compilación */
   transpilePackages: ["@acme/api", "@acme/auth", "@acme/db"],
-  /** We already do linting and typechecking as separate tasks in CI */
+  /** Ya hacemos linting y typechecking como tareas separadas en CI */
   eslint: { ignoreDuringBuilds: !!process.env.CI },
   typescript: { ignoreBuildErrors: !!process.env.CI },
   i18n: nextI18nConfig.i18n,
   images: {
-    domains: ['res.cloudinary.com', 'cdn.discordapp.com'],
+    domains: ['lh3.googleusercontent.com','res.cloudinary.com', 'cdn.discordapp.com'],
   },
   publicRuntimeConfig: {
     version,
