@@ -3,17 +3,19 @@ type ErrorMessages = {
 };
 
 const errors: ErrorMessages = {
-  Signin: 'Try signing with a different account.',
-  OAuthSignin: 'Try signing with a different account.',
-  OAuthCallback: 'Try signing with a different account.',
-  OAuthCreateAccount: 'Try signing with a different account.',
-  EmailCreateAccount: 'Try signing with a different account.',
-  Callback: 'Try signing with a different account.',
-  OAuthAccountNotLinked: 'To confirm your identity, sign in with the same account you used originally.',
-  EmailSignin: 'Check your email address.',
-  CredentialsSignin: 'Sign in failed. Check the details you provided are correct.',
-  UserNotFound: 'User not found.',
-  default: 'Unable to sign in.',
+  Signin: 'Intente iniciar sesión con una cuenta diferente.',
+  OAuthSignin: 'Intente iniciar sesión con una cuenta diferente.',
+  OAuthCallback: 'Intente iniciar sesión con una cuenta diferente.',
+  OAuthCreateAccount: 'Intente iniciar sesión con una cuenta diferente.',
+  EmailCreateAccount: 'Intente iniciar sesión con una cuenta diferente.',
+  Callback: 'Intente iniciar sesión con una cuenta diferente.',
+  OAuthAccountNotLinked:
+    'Para confirmar su identidad, inicie sesión con la misma cuenta que utilizó originalmente.',
+  EmailSignin: 'Verifique su dirección de correo electrónico.',
+  CredentialsSignin:
+    'Fallo al iniciar sesion. Comprueba que los datos que proporcionaste son correctos.',
+  UserNotFound: 'Usuario no encontrado.',
+  default: 'Incapaz de acceder.',
 };
 
 export const AuthError = (error = 'default'): string => errors[error] as string;
