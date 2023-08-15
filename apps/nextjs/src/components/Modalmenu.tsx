@@ -139,7 +139,7 @@ export default function Modalmenu() {
                           </Link>
                         </li>
                         <li>
-                          <Link href="#" target="_blank">
+                          <Link href="/contacto" target="_blank">
                             Contacto
                           </Link>
                         </li>
