@@ -13,7 +13,10 @@ interface ExampleProviderProps {
 /*  CONTEXT DEFINITION  */
 export const ExampleContext = createContext<ExampleContextType>({} as ExampleContextType);
 
-export const ExampleProvider = ({ children, initialState = '' }: ExampleProviderProps): JSX.Element => {
+export const ExampleProvider = ({
+  children,
+  initialState = '',
+}: ExampleProviderProps): JSX.Element => {
   const [data, setData] = useState(initialState);
 
   const value = useMemo(() => ({ data, setData }), [data]);
@@ -24,6 +27,6 @@ export const ExampleProvider = ({ children, initialState = '' }: ExampleProvider
 /*   EXPORT USE METHOD   */
 export const useExampleContext = () => {
   const context = useContext(ExampleContext);
-  if (!context) throw new Error('useExampleContext must be wrapped within ExampleProvider');
+  if (!context) throw new Error('useExampleContext debe incluirse dentro de ExampleProvider');
   return context;
 };
