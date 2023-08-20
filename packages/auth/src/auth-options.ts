@@ -77,27 +77,7 @@ export const authOptions: NextAuthOptions = {
      * that permits you to customize the sign in process.
      */
     async signIn({ account, profile, user: newUser }): Promise<boolean | string> {
-      /**
-       * The Google provider flow
-       */
-      if (account?.provider === 'google') {
-        const { username, image_url, email } = profile as Google;
-        const { provider, providerAccountId } = account;
-        const { name } = newUser;
-      /**
-       * The Twitter provider flow
-       */
-      if (account?.provider === 'twitter') {
-        const { username, image_url, email } = profile as Twitter;
-        const { provider, providerAccountId } = account;
-        const { name } = newUser;
-      /**
-       * The GitHub provider flow
-       */
-      if (account?.provider === 'github') {
-        const { username, image_url, email } = profile as GitHub;
-        const { provider, providerAccountId } = account;
-        const { name } = newUser;
+    
       /**
        * The Discord provider flow
        */
