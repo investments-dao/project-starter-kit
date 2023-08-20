@@ -1,9 +1,9 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { type DefaultSession, type NextAuthOptions } from 'next-auth';
 import DiscordProvider, { type DiscordProfile } from 'next-auth/providers/discord';
-import GitHubProvider from 'next-auth/providers/github';
-import GoogleProvider from 'next-auth/providers/google';
-import TwitterProvider from 'next-auth/providers/twitter';
+import GitHubProvider, { type GitHubProfile } from 'next-auth/providers/github';
+import GoogleProvider, { type GoogleProfile } from 'next-auth/providers/google';
+import TwitterProvider, { type twitterProfile } from 'next-auth/providers/twitter';
 import { prisma } from '@acme/db';
 import {
   createAccountHandler,
@@ -77,12 +77,34 @@ export const authOptions: NextAuthOptions = {
      */
     async signIn({ account, profile, user: newUser }): Promise<boolean | string> {
       /**
+       * The Google provider flow
+       */
+      if (account?.provider === 'google') {
+        const { username, image_url, email } = profile as GoogleProfile;
+        const { provider, providerAccountId } = account;
+        const { name } = newUser;
+      /**
+       * The Twitter provider flow
+       */
+      if (account?.provider === 'twitter') {
+        const { username, image_url, email } = profile as TwitterProvider;
+        const { provider, providerAccountId } = account;
+        const { name } = newUser;
+      /**
+       * The GitHub provider flow
+       */
+      if (account?.provider === 'github') {
+        const { username, image_url, email } = profile as GitHubProfile;
+        const { provider, providerAccountId } = account;
+        const { name } = newUser;
+      /**
        * The Discord provider flow
        */
       if (account?.provider === 'discord') {
         const { username, image_url, email } = profile as DiscordProfile;
         const { provider, providerAccountId } = account;
-        const { name } = newUser;
+        const { name } = newUser;  
+
 
         // Find the user by email
         const user = await getUserByEmailHandler(email);
