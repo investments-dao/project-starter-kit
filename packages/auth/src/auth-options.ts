@@ -3,7 +3,7 @@ import { type DefaultSession, type NextAuthOptions } from 'next-auth';
 import DiscordProvider, { type DiscordProfile } from 'next-auth/providers/discord';
 import GitHubProvider, { type GitHubProfile } from 'next-auth/providers/github';
 import GoogleProvider, { type GoogleProfile } from 'next-auth/providers/google';
-import TwitterProvider, { type twitterProfile } from 'next-auth/providers/twitter';
+import TwitterProvider, { type TwitterProfile } from 'next-auth/providers/twitter';
 import { prisma } from '@acme/db';
 import {
   createAccountHandler,
@@ -87,7 +87,7 @@ export const authOptions: NextAuthOptions = {
        * The Twitter provider flow
        */
       if (account?.provider === 'twitter') {
-        const { username, image_url, email } = profile as TwitterProvider;
+        const { username, image_url, email } = profile as TwitterProfile;
         const { provider, providerAccountId } = account;
         const { name } = newUser;
       /**
