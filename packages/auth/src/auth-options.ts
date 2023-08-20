@@ -1,9 +1,10 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { type DefaultSession, type NextAuthOptions } from 'next-auth';
+import GoogleProvider from 'next-auth/providers/google';
+import TwitterProvider from 'next-auth/providers/twitter';
+import GitHubProvider from 'next-auth/providers/github';
 import DiscordProvider, { type DiscordProfile } from 'next-auth/providers/discord';
-import GitHubProvider, { type GitHubProfile } from 'next-auth/providers/github';
-import GoogleProvider, { type GoogleProfile } from 'next-auth/providers/google';
-import TwitterProvider, { type TwitterProfile } from 'next-auth/providers/twitter';
+
 import { prisma } from '@acme/db';
 import {
   createAccountHandler,
@@ -80,21 +81,21 @@ export const authOptions: NextAuthOptions = {
        * The Google provider flow
        */
       if (account?.provider === 'google') {
-        const { username, image_url, email } = profile as GoogleProfile;
+        const { username, image_url, email } = profile as Google;
         const { provider, providerAccountId } = account;
         const { name } = newUser;
       /**
        * The Twitter provider flow
        */
       if (account?.provider === 'twitter') {
-        const { username, image_url, email } = profile as TwitterProfile;
+        const { username, image_url, email } = profile as Twitter;
         const { provider, providerAccountId } = account;
         const { name } = newUser;
       /**
        * The GitHub provider flow
        */
       if (account?.provider === 'github') {
-        const { username, image_url, email } = profile as GitHubProfile;
+        const { username, image_url, email } = profile as GitHub;
         const { provider, providerAccountId } = account;
         const { name } = newUser;
       /**
@@ -109,8 +110,8 @@ export const authOptions: NextAuthOptions = {
         // Find the user by email
         const user = await getUserByEmailHandler(email);
 
-        // If the user already exists, update their account, otherwise create a new user
-        if (user) {
+        // Si el usuario ya existe, actualice su cuenta, de lo contrario cree un nuevo usuario
+         if (user) {
           const userAccount = await getAccountByUserAndProviderHandler(
             user.id,
             providerAccountId,
