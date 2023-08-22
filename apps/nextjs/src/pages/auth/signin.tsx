@@ -11,15 +11,7 @@ const Signin: NextPage = () => {
     
     <div className="mx-auto mt-16 max-w-sm">
       <div className="relative flex flex-col items-center justify-center rounded-lg bg-slate-800 p-10">
-        <div>
-       <h3 className="mb-3 text-center text-2xl font-bold text-white sm:text-3xl">
-                  Inicia sesion en tu cuenta
-                </h3>
-                <p className="mb-11 text-center text-base font-medium">
-                  Logeate en tu cuenta.
-                </p>
-    </div>
-       
+               
         <button
           className="bg-primary-200/20 text-primary-50 hover:bg-primary-200/30 relative flex min-w-fit items-center justify-center overflow-hidden whitespace-nowrap rounded-lg px-4 py-2 text-center text-sm font-semibold transition duration-100 ease-out"
           onClick={() => signIn('google')}
