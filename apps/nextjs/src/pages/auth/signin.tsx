@@ -11,10 +11,10 @@ const Signin: NextPage = () => {
     
     <div className="mx-auto mt-16 max-w-sm">
       <div className="relative flex flex-col items-center justify-center rounded-lg bg-slate-800 p-10">
-        <h3 className="mb-3 text-center text-2xl font-bold text-black dark:text-white sm:text-3xl">
+        <h3 className="mb-3 text-center text-2xl font-bold text-white sm:text-3xl">
                   Inicia sesion en tu cuenta
                 </h3>
-                <p className="mb-11 text-center text-base font-medium text-body-color">
+                <p className="mb-11 text-center text-base font-medium">
                   Logeate en tu cuenta.
                 </p>
         <button
