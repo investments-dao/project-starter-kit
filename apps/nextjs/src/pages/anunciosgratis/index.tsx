@@ -1,2 +1,2 @@
-export * from './anunciainmuebles';
-export * from './anuncianegocios';
+export { default } from './anunciainmuebles';
+export { default } from './anuncianegocios';
