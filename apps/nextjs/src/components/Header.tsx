@@ -38,7 +38,9 @@ export const Header = () => {
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Item 1</a></li>
+      <li><Link href="/">
+                  <p>Anuncias Gratis tu Inmueble</p>
+                </Link></li>
       <li tabIndex={0}>
         <details>
           <summary>Parent</summary>
