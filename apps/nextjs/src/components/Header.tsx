@@ -25,7 +25,9 @@ export const Header = () => {
                   <p>Anuncias Gratis tu Inmueble</p>
                 </Link></li>
         
-        <li><a>Item 3</a></li>
+        <li><Link href="/">
+                  <p>Anuncia Gratis tu Negocio</p>
+                </Link></li>
       </ul>
     </div>
     
@@ -33,18 +35,12 @@ export const Header = () => {
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
       <li><Link href="/">
-                  <p>Anuncias Gratis tu Inmueble</p>
+                  <p>Anuncia Gratis tu Inmueble</p>
                 </Link></li>
-      <li tabIndex={0}>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li>
-      <li><a>Item 3</a></li>
+     
+      <li><Link href="/">
+                  <p>Anuncia Gratis tu Negocio</p>
+                </Link></li>
     </ul>
   </div>
 
