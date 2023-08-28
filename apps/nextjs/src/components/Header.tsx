@@ -14,7 +14,7 @@ export const Header = () => {
       <Link className="btn btn-ghost normal-case text-xl"
       href="/">Inmo-Ocio</Link>
 
-      <div className="dropdown">
+      
       <ul>
         <li><a>Item 1</a></li>
         <li>
@@ -26,7 +26,7 @@ export const Header = () => {
         </li>
         <li><a>Item 3</a></li>
       </ul>
-    </div> 
+    
         
       </div>
       <div className="flex-none gap-2">
