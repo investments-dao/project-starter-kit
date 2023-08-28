@@ -15,7 +15,7 @@ export const Header = () => {
       href="/">Inmo-Ocio</Link>
 
       
-      <ul>
+      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow">
         <li><a>Item 1</a></li>
         <li>
           <a>Parent</a>
