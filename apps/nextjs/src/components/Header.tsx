@@ -12,7 +12,21 @@ export const Header = () => {
     <div className="navbar bg-primary text-primary-content">
       <div className="flex-1 pl-5 text-2xl font-bold ">
       <Link className="btn btn-ghost normal-case text-xl"
-      href="/">Inmo-Ocio</Link> 
+      href="/">Inmo-Ocio</Link>
+
+      <div className="dropdown">
+      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+        <li><a>Item 1</a></li>
+        <li>
+          <a>Parent</a>
+          <ul className="p-2">
+            <li><a>Submenu 1</a></li>
+            <li><a>Submenu 2</a></li>
+          </ul>
+        </li>
+        <li><a>Item 3</a></li>
+      </ul>
+    </div> 
         
       </div>
       <div className="flex-none gap-2">
