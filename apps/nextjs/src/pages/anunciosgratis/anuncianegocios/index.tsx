@@ -1,9 +1,10 @@
 import React from "react";
 
-const anuncianegocios = () => {
+export default function anuncianegocios () {
   return (
-  <div>Anuncia Gratis tu Negocio</div>;
-)
-};
+    <div>Anuncia Gratis tu Negocio</div>
+  );
+  
 
-export default anuncianegocios;
+}
+
