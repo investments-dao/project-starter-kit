@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import navbar from "./navbar";
+import { navbar } from "./navbar";
 import sidebar from "./sidebar";
 
 const Navigation = () => {
