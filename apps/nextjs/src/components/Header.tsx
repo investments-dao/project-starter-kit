@@ -2,6 +2,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { api } from "~/utils/api";
 import Modalmenu from "~/components/Modalmenu"
 import React from "react";
+import Link from 'next/link';
 
 export const Header = () => {
   const { data: sessionData } = useSession();
@@ -10,7 +11,7 @@ export const Header = () => {
 
     <div className="navbar bg-primary text-primary-content">
       <div className="flex-1 pl-5 text-2xl font-bold ">
-        
+      <Link className="btn btn-ghost normal-case text-xl">Inmo-Ocio</Link> 
         
       </div>
       <div className="flex-none gap-2">
