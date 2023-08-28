@@ -11,7 +11,8 @@ export const Header = () => {
 
     <div className="navbar bg-primary text-primary-content">
       <div className="flex-1 pl-5 text-2xl font-bold ">
-      <Link className="btn btn-ghost normal-case text-xl">Inmo-Ocio</Link> 
+      <Link className="btn btn-ghost normal-case text-xl"
+      href="/">Inmo-Ocio</Link> 
         
       </div>
       <div className="flex-none gap-2">
