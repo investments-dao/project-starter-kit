@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Modalmenu from "~/components/Modalmenu";
 
-const Sidebar = ({
+const sidebar = ({
   isOpen,
   toggle,
 }: {
@@ -52,4 +52,4 @@ const Sidebar = ({
   );
 };
 
-export default Sidebar;
+export default sidebar;

@@ -5,7 +5,7 @@ import React from "react";
 import Link from 'next/link';
 import Logo from ".Logo"
 
-export const Header = () => {
+export const navbar = () => {
   const { data: sessionData } = useSession();
 
   return (
