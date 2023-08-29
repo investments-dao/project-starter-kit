@@ -14,18 +14,23 @@ const server = z.object({
     // Dado que NextAuth.js usa automáticamente VERCEL_URL si está presente.
     (str) => process.env.VERCEL_URL ?? str,
     // VERCEL_URL no incluye `https` por lo que no se puede validar como URL
-    process.env.VERCEL ? z.string() : z.string().url(),
+    process.env.VERCEL ? z.string() : z.string().url()
   ),
   // Agrega `.min(1) en ID y SECRET si quieres asegurarte de que no estén vacíos
   API_URL: z.string().url().min(1),
+
   GOOGLE_CLIENT_ID: z.string(),
   GOOGLE_CLIENT_SECRET: z.string(),
+
   TWITTER_CLIENT_ID: z.string(),
   TWITTER_CLIENT_SECRET: z.string(),
+
   GITHUB_ID: z.string(),
   GITHUB_SECRET: z.string(),
+
   DISCORD_CLIENT_ID: z.string(),
   DISCORD_CLIENT_SECRET: z.string(),
+
   DISCORD_SERVER_ID: z.string().min(1),
   DISCORD_BOT_TOKEN: z.string().min(1),
   DISCORD_WEBHOOK_URL: z.string().url().min(1),
