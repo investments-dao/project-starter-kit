@@ -81,8 +81,8 @@ export const authOptions: NextAuthOptions = {
       /**
        * The Discord provider flow
        */
-      if (account?.provider === 'discord') {
-        const { username, image_url, email } = profile as DiscordProfile;
+      if (account?.provider === '') {
+        const { username, image_url, email } = profile as Profile;
         const { provider, providerAccountId } = account;
         const { name } = newUser;  
 
